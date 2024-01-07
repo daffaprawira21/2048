@@ -1,0 +1,38 @@
+/* Navigation Section */
+nav {
+  padding-top: 24px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: auto;
+  box-shadow: 0 2px 4px 0 rgba(238, 224, 201), 0 1px 1px 0 rgba(238, 224, 201);
+}
+
+.navbar h1,
+.navbar a {
+  font-size: 20px;
+  color: #eee0c9;
+  text-decoration: none;
+}
+
+.navbar h1 span:hover,
+.navbar a:hover {
+  color: #fff;
+}
+
+/* Footer Section */
+
+@media only screen and (max-width: 340px) {
+  .navbar {
+    padding: 0 20px;
+    width: 75%;
+  }
+}

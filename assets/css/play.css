@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  background-color: #212121;
+}
+
+.container {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+  gap: 1.5rem;
+}
+
+.game-container {
+  width: 325px;
+  height: 323px;
+  border: 5px solid #131313;
+  border-radius: 10px;
+  background-color: #131313;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.cell {
+  width: 77px;
+  height: 77px;
+  background-color: #313131;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #000;
+}
+
+.score-container {
+  width: 325px;
+  padding: 0.3em;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: #eee0c9;
+}
+
+.cell[data-value='2'] {
+  background-color: #ffc0cb;
+}
+
+.cell[data-value='4'] {
+  background-color: #add8e6;
+}
+
+.cell[data-value='8'] {
+  background-color: #98fb98;
+}
+
+.cell[data-value='16'] {
+  background-color: #ffd700;
+}
+
+.cell[data-value='32'] {
+  background-color: #ffa07a;
+}
+
+.cell[data-value='64'] {
+  background-color: #87ceeb;
+}
+
+.cell[data-value='128'] {
+  background-color: #ffff00;
+}
+
+.cell[data-value='256'] {
+  background-color: #40e0d0;
+}
+
+.cell[data-value='512'] {
+  background-color: #ff69b4;
+}
+
+.cell[data-value='1024'] {
+  background-color: #7b68ee;
+}
+
+.cell[data-value='2048'] {
+  background-color: #ff6347;
+}
+
+.cell[data-value='4096'] {
+  background-color: #a9a9a9;
+}
+
+.side-container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 330px;
+}
+
+.game-explanation {
+  padding: 0.5rem 1.2rem;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #f4f4f4;
+  border-radius: 0 0 10px 10px;
+}
+
+.game-explanation p {
+  text-align: justify;
+}
+
+.game-explanation .important {
+  font-size: 16px;
+  color: #eee0c9;
+}
+
+kbd {
+  border: 1px solid #9fa6ad;
+  box-shadow: 0 1px 1px rgba(12, 13, 14, 0.15), inset 0 1px 0 0 #fff;
+  background-color: #e3e6e8;
+  border-radius: 4px;
+  color: #232629;
+  display: inline-block;
+  line-height: 1.5;
+  margin: 0 0.1em;
+  overflow-wrap: break-word;
+  padding: 0.1em 0.5em;
+  text-shadow: 0 1px 0 #fff;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+kbd:hover,
+kbd:hover * {
+  background: #ccc;
+}
+kbd:active,
+kbd:active * {
+  box-shadow: 1px 1px 0 #ddd inset;
+}
+
+#restart-btn {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#restart-btn:hover {
+  background-color: #eee0c9;
+}
+
+#game-over {
+  position: absolute;
+  font-weight: 500;
+  top: 50%;
+  left: 50%;
+  padding: 3rem;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  color: #fff;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-cell[data-value] {
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.new-tile {
+  animation: appear 0.3s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .game-container {
+    width: 275px;
+    height: 275px;
+  }
+  .cell {
+    width: 65px;
+    height: 65px;
+  }
+  .score-container {
+    width: 275px;
+  }
+  .side-container {
+    width: 275px;
+  }
+}
+
+@media only screen and (max-width: 290px) {
+  .game-container {
+    width: 235px;
+    height: 235px;
+    border: 4px solid #131313;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  .cell {
+    width: 56px;
+    height: 56px;
+    font-size: 1em;
+    font-weight: 400;
+  }
+  .score-container {
+    width: 235px;
+  }
+  .side-container {
+    width: 235px;
+  }
+  .game-explanation {
+    font-size: 10px;
+  }
+
+  .game-explanation .important {
+    font-size: 12px;
+    color: #eee0c9;
+  }
+}
+@media only screen and (max-width: 260px) {
+  .game-container {
+    width: 200px;
+    height: 200px;
+  }
+  .cell {
+    width: 47px;
+    height: 47px;
+  }
+  .score-container {
+    width: 200px;
+  }
+  .side-container {
+    width: 200px;
+  }
+  .game-explanation {
+    font-size: 10px;
+  }
+
+  .game-explanation .important {
+    font-size: 12px;
+    color: #eee0c9;
+  }
+}
