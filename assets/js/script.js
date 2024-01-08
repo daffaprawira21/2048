@@ -5,6 +5,45 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentScore = 0;
   const currentScoreElem = document.getElementById('current-score');
 
+  grid.addEventListener('touchstart', handleTouchStart);
+  grid.addEventListener('touchmove', handleTouchMove);
+  grid.addEventListener('touchend', handleTouchEnd);
+
+  let touchStartX, touchStartY;
+
+  function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+  }
+
+  function handleTouchMove(event) {
+    event.preventDefault(); // Mencegah scroll selama perpindahan sentuhan
+    // Handle touch move jika diperlukan
+  }
+
+  function handleTouchEnd(event) {
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    // Tentukan arah gerakan berdasarkan perbedaan posisi sentuhan
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX > 0) {
+        move('ArrowRight');
+      } else {
+        move('ArrowLeft');
+      }
+    } else {
+      if (deltaY > 0) {
+        move('ArrowDown');
+      } else {
+        move('ArrowUp');
+      }
+    }
+  }
+
   // Get the high score from local storage or set it to 0 if not found
   let highScore = localStorage.getItem('2048-highScore') || 0;
   const highScoreElem = document.getElementById('high-score');
