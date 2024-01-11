@@ -91,47 +91,19 @@
   }
 }
 
-@media only screen and (max-width: 380px) {
-  .btn-nav {
-    padding: 1.5rem 1rem;
-  }
-
-  .glow-on-hover {
-    display: flex;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    width: 96px;
-    height: 48px;
-    font-size: 12px;
-  }
+#restart-game,
+#play-again {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-
-@media only screen and (max-width: 280px) {
-  .btn-nav {
-    padding: 1rem;
-  }
-
-  .glow-on-hover {
-    display: flex;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    width: 90px;
-    height: 36px;
-    font-size: 10px;
-  }
-}
-
-@media only screen and (max-width: 256px) {
-  .btn-nav {
-    padding: 0.5rem;
-  }
-
-  .glow-on-hover {
-    display: flex;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    width: 86px;
-    height: 34px;
-    font-size: 8px;
-  }
+#restart-game:hover,
+#play-again:hover {
+  background-color: #eee0c9;
 }

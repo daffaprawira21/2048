@@ -10,10 +10,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="assets/css/template.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/play.css" />
-    <link rel="stylesheet" href="assets/css/button.css" />
     <title>Play | 2048</title>
   </head>
 
@@ -79,9 +76,13 @@
         </div>
       </div>
     </div>
-    <div id="game-over">
+    <div id="game-over-message" class="game-over">
       Game 💔 Over!
-      <button id="restart-btn">Restart Game</button>
+      <button id="restart-game">Restart Game</button>
+    </div>
+    <div id="win-message" class="game-over">
+      Congratulations! ✨ You Win!
+      <button id="play-again">Play Again</button>
     </div>
     <script src="assets/js/script.js"></script>
   </body>

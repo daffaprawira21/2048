@@ -1,55 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector('.grid');
-  const size = 4;
   let board = [];
   let currentScore = 0;
+  const grid = document.querySelector('.grid');
+  const size = 4;
   const currentScoreElem = document.getElementById('current-score');
-
-  grid.addEventListener('touchstart', handleTouchStart);
-  grid.addEventListener('touchmove', handleTouchMove);
-  grid.addEventListener('touchend', handleTouchEnd);
-
-  let touchStartX, touchStartY;
-
-  function handleTouchStart(event) {
-    touchStartX = event.touches[0].clientX;
-    touchStartY = event.touches[0].clientY;
-  }
-
-  function handleTouchMove(event) {
-    event.preventDefault(); // Mencegah scroll selama perpindahan sentuhan
-    // Handle touch move jika diperlukan
-  }
-
-  function handleTouchEnd(event) {
-    const touchEndX = event.changedTouches[0].clientX;
-    const touchEndY = event.changedTouches[0].clientY;
-
-    const deltaX = touchEndX - touchStartX;
-    const deltaY = touchEndY - touchStartY;
-
-    // Tentukan arah gerakan berdasarkan perbedaan posisi sentuhan
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      if (deltaX > 0) {
-        move('ArrowRight');
-      } else {
-        move('ArrowLeft');
-      }
-    } else {
-      if (deltaY > 0) {
-        move('ArrowDown');
-      } else {
-        move('ArrowUp');
-      }
-    }
-  }
 
   // Get the high score from local storage or set it to 0 if not found
   let highScore = localStorage.getItem('2048-highScore') || 0;
   const highScoreElem = document.getElementById('high-score');
   highScoreElem.textContent = highScore;
 
-  const gameOverElem = document.getElementById('game-over');
+  let winStatus = false;
+  const winMessageElem = document.getElementById('win-message');
+  const gameOverElem = document.getElementById('game-over-message');
 
   // Function to update the score
   function updateScore(value) {
@@ -66,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function restartGame() {
     currentScore = 0;
     currentScoreElem.textContent = '0';
+    winMessageElem.style.display = 'none';
     gameOverElem.style.display = 'none';
     initializeGame();
   }
@@ -73,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to initialize the game
   function initializeGame() {
     board = [...Array(size)].map((e) => Array(size).fill(0));
+    winStatus = false;
     placeRandom();
     placeRandom();
     renderBoard();
@@ -136,8 +101,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  let touchStartX, touchStartY;
+
+  // Function to handle touch input
+  function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+  }
+
+  // Function to handle scrolling during touch switching
+  function handleTouchMove(event) {
+    event.preventDefault();
+  }
+
+  // Function to move the tiles based on touch input
+  function handleTouchEnd(event) {
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX > 0) {
+        move('ArrowRight');
+      } else {
+        move('ArrowLeft');
+      }
+    } else {
+      if (deltaY > 0) {
+        move('ArrowDown');
+      } else {
+        move('ArrowUp');
+      }
+    }
+  }
+
   // Function to move the tiles based on arrow key input
   function move(direction) {
+    if (winStatus) {
+      // If player has won, do not allow further moves or score increment
+      return;
+    }
     let hasChanged = false;
     if (direction === 'ArrowUp' || direction === 'ArrowDown') {
       for (let j = 0; j < size; j++) {
@@ -163,7 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hasChanged) {
       placeRandom();
       renderBoard();
-      checkGameOver();
+      gameWon();
+      gameOver();
     }
   }
 
@@ -174,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       newLine.reverse();
     }
     for (let i = 0; i < newLine.length - 1; i++) {
-      if (newLine[i] === newLine[i + 1]) {
+      if (newLine[i] === newLine[i + 1] && newLine[i] < 2048) {
         newLine[i] *= 2;
         updateScore(newLine[i]); // Update score when tiles merged
         newLine.splice(i + 1, 1);
@@ -189,8 +195,20 @@ document.addEventListener('DOMContentLoaded', () => {
     return newLine;
   }
 
-  // Function to check if the game is over
-  function checkGameOver() {
+  function gameWon() {
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        if (board[i][j] === 2048) {
+          winMessageElem.style.display = 'flex';
+          winStatus = true;
+          return; // There is an empty cell, so game not over
+        }
+      }
+    }
+    // If we reach here, no moves are possible
+  }
+
+  function gameOver() {
     for (let i = 0; i < size; i++) {
       for (let j = 0; j < size; j++) {
         if (board[i][j] === 0) {
@@ -204,10 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-
     // If we reach here, no moves are possible
     gameOverElem.style.display = 'flex';
   }
+  // Function to check if the player has won or the game is over
 
   // Event listeners
   document.addEventListener('keydown', (event) => {
@@ -217,8 +235,16 @@ document.addEventListener('DOMContentLoaded', () => {
       move(event.key);
     }
   });
-  document.getElementById('restart-btn').addEventListener('click', restartGame);
+
   document.getElementById('new-game').addEventListener('click', restartGame);
+  document.getElementById('play-again').addEventListener('click', restartGame);
+  document
+    .getElementById('restart-game')
+    .addEventListener('click', restartGame);
+
+  grid.addEventListener('touchstart', handleTouchStart);
+  grid.addEventListener('touchmove', handleTouchMove);
+  grid.addEventListener('touchend', handleTouchEnd);
 
   initializeGame();
 });
