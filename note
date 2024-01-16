@@ -1,0 +1,10 @@
+<iframe
+  src="assets/audio/chiptune-grooving-142242.mp3"
+  allow="autoplay"
+  style="display: none"
+  id="iframeAudio"
+>
+</iframe>
+<audio autoplay loop id="playAudio">
+  <source src="assets/audio/chiptune-grooving-142242.mp3" />
+</audio>

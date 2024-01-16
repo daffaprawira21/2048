@@ -15,30 +15,33 @@
     <title>Main Menu | 2048</title>
   </head>
   <body>
-    <iframe
-      src="assets/audio/chiptune-grooving-142242.mp3"
-      allow="autoplay"
-      style="display: none"
-      id="iframeAudio"
-    >
-    </iframe>
-    <audio autoplay loop id="playAudio">
-      <source src="assets/audio/chiptune-grooving-142242.mp3" />
+    <audio id="backgroundSound" autoplay loop>
+      <source
+        src="assets/audio/chiptune-grooving-142242.mp3"
+        type="audio/mp3"
+      />
+      Your browser does not support the audio element.
     </audio>
-
     <nav>
       <div class="navbar">
-        <a href="index.html"
-          ><h1>
-            <span style="color: #ffc0cb">2</span>
-            <span style="color: #add8e6">0</span>
-            <span style="color: #98fb98">4</span>
-            <span style="color: #ffd700">8</span>
-          </h1></a
-        >
-        <a href="https://github.com/daffaprawira21" target="_blank"
-          ><i class="fa-brands fa-github"></i
-        ></a>
+        <div class="site-logo">
+          <a href="index.html"
+            ><h1>
+              <span style="color: #ffc0cb">2</span>
+              <span style="color: #add8e6">0</span>
+              <span style="color: #98fb98">4</span>
+              <span style="color: #ffd700">8</span>
+            </h1></a
+          >
+        </div>
+        <div class="site-navigation">
+          <div id="toggleSound" class="sound-toggle">
+            <i class="fas fa-volume-up"></i>
+          </div>
+          <a href="https://github.com/daffaprawira21" target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </div>
       </div>
     </nav>
 
@@ -53,5 +56,26 @@
         <span>Play</span>
       </a>
     </div>
+
+    <footer>
+      <p>&copy; 2024. All rights reserved. || Created by @daffaprawira.</p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var backgroundSound = document.getElementById('backgroundSound');
+        var toggleSoundButton = document.getElementById('toggleSound');
+
+        toggleSoundButton.addEventListener('click', function () {
+          if (backgroundSound.paused) {
+            backgroundSound.play();
+            toggleSoundButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+          } else {
+            backgroundSound.pause();
+            toggleSoundButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+          }
+        });
+      });
+    </script>
   </body>
 </html>

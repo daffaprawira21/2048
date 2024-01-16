@@ -16,6 +16,17 @@ nav {
   box-shadow: 0 2px 4px 0 rgba(238, 224, 201), 0 1px 1px 0 rgba(238, 224, 201);
 }
 
+.navbar .site-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+}
+
+.sound-toggle {
+  color: #eee0c9;
+}
+
 .navbar h1,
 .navbar a {
   font-size: 20px;
@@ -29,6 +40,20 @@ nav {
 }
 
 /* Footer Section */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #eee0c9;
+  width: 100%;
+  padding: 22px 0;
+}
+
+footer p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
 
 @media only screen and (max-width: 340px) {
   .navbar {
