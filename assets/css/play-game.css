@@ -19,7 +19,6 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* padding: 1rem; */
   gap: 1.5rem;
   font-family: 'Poppins', sans-serif;
   flex: 1;
@@ -67,6 +66,15 @@ body {
   display: flex;
   flex-flow: column nowrap;
   width: 330px;
+}
+
+.game-menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 1rem;
+  border-radius: 10px 10px 0 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 3px solid #313131;
 }
 
 .game-explanation {
