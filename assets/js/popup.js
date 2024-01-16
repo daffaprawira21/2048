@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Event listener untuk tombol play pada halaman index
-  document.getElementById('wrapper').addEventListener('click', showPopup);
+  document.getElementById('play-btn').addEventListener('click', showPopup);
   // Event listener untuk ikon tutup
   closePopupIcon.addEventListener('click', hidePopup);
 });

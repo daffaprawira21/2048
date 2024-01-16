@@ -15,6 +15,7 @@
     <title>Main Menu | 2048</title>
   </head>
   <body>
+    <script src="assets/js/template.js"></script>
     <audio id="backgroundSound" autoplay loop>
       <source
         src="assets/audio/chiptune-grooving-142242.mp3"
@@ -46,7 +47,7 @@
     </nav>
 
     <div id="wrapper">
-      <a href="#" class="my-super-cool-btn">
+      <a href="#" id="play-btn" class="my-super-cool-btn">
         <div class="dots-container">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -61,13 +62,15 @@
         <h2>What you wanna play?</h2>
         <a href="play-2048.html" class="glow-on-hover">2048</a>
         <a href="play-3072.html" class="glow-on-hover">3072</a>
-        <div id="closePopup" class="close-icon">&times;</div>
+        <div id="closePopup" class="close-icon">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </div>
       </div>
     </div>
 
     <footer>
       <div class="site-footer">
-        <p>&copy; 2024. All rights reserved. | Created by @daffaprawira.</p>
+        <p>&copy; 2024. All rights reserved | Created by @daffaprawira.</p>
       </div>
     </footer>
 
