@@ -28,6 +28,10 @@ nav {
   color: #eee0c9;
 }
 
+.sound-toggle:hover {
+  color: #fff;
+}
+
 .navbar h1,
 .navbar a {
   font-size: 20px;
