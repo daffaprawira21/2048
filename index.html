@@ -46,7 +46,7 @@
     </nav>
 
     <div id="wrapper">
-      <a href="play.html" class="my-super-cool-btn">
+      <a href="#" class="my-super-cool-btn">
         <div class="dots-container">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -56,26 +56,22 @@
         <span>Play</span>
       </a>
     </div>
+    <div id="popupMenu" class="popup">
+      <div class="popup-content">
+        <h2>What you wanna play?</h2>
+        <a href="play-2048.html" class="glow-on-hover">2048</a>
+        <a href="play-3072.html" class="glow-on-hover">3072</a>
+        <div id="closePopup" class="close-icon">&times;</div>
+      </div>
+    </div>
 
     <footer>
-      <p>&copy; 2024. All rights reserved. || Created by @daffaprawira.</p>
+      <div class="site-footer">
+        <p>&copy; 2024. All rights reserved. | Created by @daffaprawira.</p>
+      </div>
     </footer>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var backgroundSound = document.getElementById('backgroundSound');
-        var toggleSoundButton = document.getElementById('toggleSound');
-
-        toggleSoundButton.addEventListener('click', function () {
-          if (backgroundSound.paused) {
-            backgroundSound.play();
-            toggleSoundButton.innerHTML = '<i class="fas fa-volume-up"></i>';
-          } else {
-            backgroundSound.pause();
-            toggleSoundButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
-          }
-        });
-      });
-    </script>
+    <script src="assets/js/backsound.js"></script>
+    <script src="assets/js/popup.js"></script>
   </body>
 </html>

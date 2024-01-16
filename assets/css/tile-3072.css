@@ -1,0 +1,43 @@
+.cell[data-value='3'] {
+  background-color: #ffc0cb;
+}
+
+.cell[data-value='6'] {
+  background-color: #add8e6;
+}
+
+.cell[data-value='12'] {
+  background-color: #98fb98;
+}
+
+.cell[data-value='24'] {
+  background-color: #ffd700;
+}
+
+.cell[data-value='48'] {
+  background-color: #ffa07a;
+}
+
+.cell[data-value='96'] {
+  background-color: #87ceeb;
+}
+
+.cell[data-value='192'] {
+  background-color: #ffff00;
+}
+
+.cell[data-value='384'] {
+  background-color: #40e0d0;
+}
+
+.cell[data-value='768'] {
+  background-color: #ff69b4;
+}
+
+.cell[data-value='1536'] {
+  background-color: #7b68ee;
+}
+
+.cell[data-value='3072'] {
+  background-color: #ff6347;
+}
