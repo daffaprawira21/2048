@@ -1,3 +1,8 @@
+:root {
+  --dark-primary: #212121;
+  --dark-secondary: #191919;
+}
+
 /* Navigation Section */
 nav {
   padding-top: 22px;
@@ -9,11 +14,12 @@ nav {
   align-items: center;
   padding: 0 22px;
   width: 80%;
-  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   overflow: hidden;
   margin: auto;
-  box-shadow: 0 2px 4px 0 rgba(238, 224, 201), 0 1px 1px 0 rgba(238, 224, 201);
+  background-color: var(--dark-secondary);
+  box-shadow: 1px 2px 4px 0 rgb(212, 187, 147),
+    -1px 2px 2px 0.5px rgb(255, 238, 214);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -21,11 +27,13 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60px;
+  width: 64px;
 }
 
 .sound-toggle {
   color: #eee0c9;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 .sound-toggle:hover {
@@ -34,9 +42,9 @@ nav {
 
 .navbar h1,
 .navbar a {
-  font-size: 20px;
   color: #eee0c9;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .navbar h1 span:hover,
@@ -53,10 +61,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--dark-secondary);
   color: #eee0c9;
   width: 100%;
   padding: 18px 0;
+  box-shadow: 0 -2px 4px 0 rgb(212, 187, 147), 0 -2px 0.5px rgb(255, 238, 214);
 }
 
 .site-footer p {
