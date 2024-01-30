@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (available.length > 0) {
       const randomCell =
         available[Math.floor(Math.random() * available.length)];
-      board[randomCell.x][randomCell.y] = Math.random() < 0.9 ? 2 : 4;
+      board[randomCell.x][randomCell.y] = Math.random() < 0.9 ? 2 : 512;
       const cell = document.querySelector(
         `[data-row="${randomCell.x}"][data-col="${randomCell.y}"]`
       );
