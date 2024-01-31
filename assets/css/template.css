@@ -55,9 +55,6 @@ nav {
 /* Footer Section */
 footer {
   margin-top: auto;
-}
-
-.site-footer {
   display: flex;
   justify-content: center;
   align-items: center;
