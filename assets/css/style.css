@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('button.css');
 @import url('template.css');
-@import url('responsive.css');
 
 body {
   margin: 0;
@@ -301,4 +300,37 @@ body {
 }
 .close-icon:hover {
   color: #b80000;
+}
+
+@media only screen and (max-width: 530px) {
+  .popup-menu__content h2 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .navbar {
+    padding: 0 20px;
+    width: 75%;
+  }
+  footer {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 290px) {
+  .glow-on-hover {
+    font-weight: 300;
+    width: 90px;
+    height: 36px;
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 260px) {
+  .glow-on-hover {
+    width: 86px;
+    height: 34px;
+    font-size: 8px;
+  }
 }
