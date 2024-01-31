@@ -60,8 +60,8 @@ footer {
   align-items: center;
   background-color: var(--dark-secondary);
   color: #eee0c9;
-  width: 100%;
-  padding: 18px 0;
+  min-width: 100vw;
+  padding: 2rem 0;
   box-shadow: 0 -2px 4px 0 rgb(212, 187, 147), 0 -2px 0.5px rgb(255, 238, 214);
   font-family: 'Poppins', sans-serif;
 }
