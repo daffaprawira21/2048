@@ -142,6 +142,24 @@ kbd:active * {
   animation: appear 0.3s;
 }
 
+#restart-game,
+#play-again {
+  font-size: 14px;
+  font-weight: 500px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+#restart-game:hover,
+#play-again:hover {
+  background-color: #eee0c9;
+  color: #111;
+}
+
 @keyframes appear {
   from {
     opacity: 0;
