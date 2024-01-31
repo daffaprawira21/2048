@@ -37,6 +37,16 @@
   }
 }
 
+@media only screen and (max-width: 340px) {
+  .navbar {
+    padding: 0 20px;
+    width: 75%;
+  }
+  footer {
+    font-size: 12px;
+  }
+}
+
 @media only screen and (max-width: 290px) {
   .btn-nav {
     padding: 1rem;
